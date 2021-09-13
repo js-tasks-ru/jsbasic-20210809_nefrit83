@@ -7,7 +7,7 @@ export default class Carousel {
     this.elem = this.render(slides);
   }
 
-  render(slides) {
+   render(slides) {
     let slider = createElement(`
 <div class="carousel">
 <div class="carousel__arrow carousel__arrow_right">
@@ -26,6 +26,7 @@ ${this.getSlide(slides)}
     let moveRight = slider.querySelector(".carousel__arrow_right");
     let moveLeft = slider.querySelector(".carousel__arrow_left");
     
+
     this.indexCounter(this.index, moveRight, moveLeft, this.slides.length);
 
     moveRight.addEventListener("click", () => {
@@ -51,9 +52,10 @@ ${this.getSlide(slides)}
       btn.addEventListener("click", () => {
         btn.dispatchEvent(
           new CustomEvent("product-add", {
-            detail: btn.closest('.carousel__slide').dataset.id,
+            detail: btn.closest(".carousel__slide").dataset.id,
             bubbles: true,
-          }));
+          })
+        );
       });
     }
 
